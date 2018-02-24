@@ -1,0 +1,35 @@
+<!--pages/allAssess/index.wxml-->
+<scroll-view scroll-y style="height: 100%"  bindscrolltolower="getMore" >
+    <view class="all-assess box">
+        <view class="assess-list">
+            <block wx:for="{{list}}" wx:key="index">
+                <view class="assess-item">
+                    <image src="{{item.avatar}}" class="user-pic"></image>
+                    <view class="assess-info">
+                        <view class="assess-top">
+                            <view class="assess-user">{{item.nickname}}</view>
+                            <view class="assess-time">
+                                <text>{{item.regdate}}</text>
+                                <view class="assess-grade">
+                                    <block wx:for="{{5}}" wx:key="subindex" wx:for-index="subindex" wx:for-item="subitem">
+                                        <view class="star {{item.stars>subindex?'active':''}}"></view>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="assess-middle">{{item.content}}</view>
+                        <view class="assess-bottom">
+                            <block wx:for="{{item.imgItems}}" wx:key="subindex" wx:for-index="subindex" wx:for-item="subitem">
+                                <image src="{{subitem}}" bindtap="lookImg" data-index="{{index}}" data-subindex="{{subindex}}"></image>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</scroll-view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

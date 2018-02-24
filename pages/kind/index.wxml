@@ -1,0 +1,31 @@
+<!--pages/kind/index.wxml-->
+<scroll-view scroll-y style="height: 100%"  bindscrolltolower="getMore" >
+  <view class='box'>
+      <view class="home-shop-list home-item" wx:if="{{list.length != 0}}">
+          <block wx:for="{{list}}" wx:key="index">
+              <navigator url="../detail/index?id={{item.id}}">
+                  <view class="item">
+                      <image src="{{item.imgurl}}"></image>
+                      <view class="info">
+                          <view class="name">{{item.name}}</view>
+                          <view class="type">{{item.content}}</view>
+                          <view class="price">¥ {{item.price}}</view>
+                          <!-- <view class="small-txt">
+                              <text class="access">45评价</text>
+                              <text class="time">最快2小时送达</text>   
+                          </view> -->
+                      </view>
+                  </view>
+              </navigator>
+          </block>
+      </view>
+      <!-- 暂无数据 -->
+      <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0 && hidding}}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+      </view>
+  </view>
+</scroll-view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

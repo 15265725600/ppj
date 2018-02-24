@@ -1,0 +1,121 @@
+/**index.wxss**/
+swiper{
+  height: 280rpx;
+}
+swiper image{
+  width: 100%;
+  height: 280rpx;
+}
+.kind-search-box{
+  background: #fff;
+  margin-top: 10rpx;
+}
+.home-item{
+  background: #fff;
+  margin-top: 25rpx;
+}
+/* 搜索定位 */
+.search-addr{
+  display: flex;
+  line-height: 65rpx;
+  padding: 10rpx 25rpx;
+}
+.addr-box{
+  background: #e9e9e9;
+  border-radius: 5px;
+  color: #908b8b;
+  display: flex;
+  align-items: center;
+  padding: 0 35rpx;
+}
+.search-box{
+  padding: 0 20rpx;
+  margin-left: 5rpx;
+  border: 1px solid #aaaaaa;
+  flex: 1;
+  border-radius: 5px;
+}
+.search{
+  display: flex;
+  align-items: center;
+}
+.search .txt{
+  color: #908b8b;
+}
+.addr-box .icon{
+  width: 23rpx;
+  height: 30rpx;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAeCAYAAADHJYVoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEY3M0VBNzk5M0EzMTFFN0I1REVCRUYxN0JBNDNFQUYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEY3M0VBN0E5M0EzMTFFN0I1REVCRUYxN0JBNDNFQUYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0RjczRUE3NzkzQTMxMUU3QjVERUJFRjE3QkE0M0VBRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0RjczRUE3ODkzQTMxMUU3QjVERUJFRjE3QkE0M0VBRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvJDc9cAAAMMSURBVHjanJZLSFRRGMePU5amEoEZBi0qSNIK26SZtQl6uArNKYKgFxa20GosXPTYVTqLtDLb9GAizB4uaiBqUSEJ0QMhXZQ0us3Mih5kOdX/k/+Nr8O9M3f6w49zvu+c+93vnudNO9XcbDwUAOvARlAG5oPJYBy8AT3gBrhbFwr98grgpgrQB6JgOyhgYMOygH5p72sJhyvcgqRZmU8CLWCv8n0A98BL8BVkgcVgDZih+p0FdfiKuFFZ6MCdoJL2W9AIroIxl8Smgi3gOJjFhPLxFUHnBXpYTqjAD0AhuOgR2NAv7UXgIX2VfNk/Y14OQiqwTOSo8SFk+R7FWvCIrgZkX66Dh1kOg03gh0lBeIH0D4J3Op4ELyGiY6qDnosaZhZjWUO/foEkdpRmCbJfJsE30/ERXLACp4M74DxYBeayFPs227VkDj6xHpTgK2hEXSavkeMv6gfnWIrWs11n/102Fc2VEnwhjRcuG6yWdVnnxbSXgvv01+Lz7Y34lGWhNGSrda2Vx/UrauW2F/3kRjNsz7OeG2aZLcHjany1xlV9mtWW5dFPNIVlPKDW8xyr0wgYYP0IyGV9Jm3RAMZ5xHpuNstRCd5LY7nLEnZ22yIuw8c8EYusdq0ylr0SvJvGapWdXlpNrOfwwRzaTWz/K0xuLuOIuiV4BPzmWO1zyeQQKOWkdrEspd/Wfs6dxIvIqTgEboEqNl4Gr62HnhBPIesFKrkuzMWQs0YPcgNlgOsgM5WzBYEzeStlME6DPrhijgNaAtpMamrjBTKRKLKO2ef5aV4Wom1gh8+sd7K/qBOBW73uUOn4Sl1bxUliS/sZ1uW5XYku6C+c2G8cPxnH6R6BxX+T/aR/FbL+nOz2l1NvN+vyO3FJLnL7Yqd/Hu09CNzv99fiCmhnfQOXqNYB+kXtCBxJ5b9FVA+es36S9+zEOc3L3LC9PtFflUlwu1fzv8X57ZBleo22+KuR9dj/BBcNgq2s54NnLA39g4keDvhYylF1+qWr0zCa7MGAzx14GHTwQOqgnVR/BBgAJG7G9xlmz5kAAAAASUVORK5CYII=);
+  background-size: cover;
+  margin-right: 5rpx;
+}
+.search-box icon{
+  line-height: 100%;
+  margin-right: 5rpx;
+}
+.search-box input{
+  flex: 1;
+}
+/* 分类 */
+.kind-box{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+}
+.kind-box navigator{
+    width: 25%;
+}
+.kind-item{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.kind-item image{
+  width: 97rpx;
+  height: 97rpx;
+}
+.kind-item text{
+  padding: 10rpx 0;
+  display: inline-block;
+}
+
+/* 品牌街,合作企业 */
+.home-item .title{
+  font-size: 16px;
+  line-height: 100rpx;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #c9c9c9;
+}
+.home-joint-box .list,.home-brand-box .list{
+  padding: 10rpx 0 30rpx 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.home-joint-box .item,.home-brand-box .item{
+  position: relative;
+  width: 200rpx;
+  display: inline-block;
+}
+.home-joint-box .item::after,.home-brand-box .item::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 2px;
+  background: #a0a0a0;
+}
+.home-joint-box .item:last-of-type:after,.home-brand-box .item:last-of-type:after{
+  width: 0;
+}
+.home-joint-box image,.home-brand-box image{
+  width: 118rpx;
+  height: 118rpx;
+  margin: 0 auto;
+  display: block;
+}
+

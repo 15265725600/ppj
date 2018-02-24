@@ -1,0 +1,4 @@
+/* pages/allAssess/index.wxss */
+.assess-item{
+  background: #fff;
+}

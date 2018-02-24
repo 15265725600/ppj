@@ -1,0 +1,45 @@
+<!--pages/pay/index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class="pay box">
+    <view class="pay-item" bindtap="chooseWay" data-index='{{0}}'>
+        <view class="name">钱包支付 <text>¥{{myMoney}}</text></view>
+        <view class="select">
+            <icon type="success" wx:if="{{payWay[0]}}" color="#fe5656"/>
+            <icon type="circle" wx:else="{{payWay[0]}}"/>
+        </view>
+    </view>
+    <view class="pay-item"  bindtap="chooseWay" data-index='{{1}}'>
+        <view class="name"><view class="icon"></view>微信支付</view>
+        <view class="select">
+            <icon type="success" wx:if="{{payWay[1]}}" color="#fe5656"/>
+            <icon type="circle" wx:else="{{payWay[1]}}"/>
+        </view>
+    </view>
+    <!-- 订单状态操作 -->
+    <view class="order-detail-handle">
+        <view class="price-sum">合计：<text>¥{{money}} </text></view>
+        <button bindtap="submit">确认支付</button>
+    </view>
+</view>
+<!-- 设置密码框 -->
+<view class="mark" wx:if="{{showMark}}">
+    <view class="ps-box">
+        <view class="ps-warn">请输入钱包支付密码</view>
+        <view class="input-content-wrap">
+            <view catchtap="set_Focus" class="input-password-wrap">
+              <block wx:for="{{6}}" wx:key="index">
+                  <view class="password_dot">
+                      <i wx:if="{{wallets_password.length>index}}"></i>
+                  </view>
+              </block>
+            </view>
+          <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" value="{{wallets_password}}"/>
+        </view>
+        <view class="btn-box">
+            <button bindtap="cancle">取消</button>
+            <button bindtap="pay">支付</button>
+        </view>
+    </view>
+</view>
+<!-- toast -->
+<template is="wetoast" data="{{...__wetoast__}}"/>

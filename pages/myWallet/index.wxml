@@ -1,0 +1,36 @@
+<!--pages/myWallet/index.wxml-->
+<scroll-view scroll-y style="height: 100%"  bindscrolltolower="getMore" >
+    <view class="wallet">
+        <!-- 总额 -->
+        <view class="money">
+            <view class="name">钱包余额（元）</view>
+            <view class="number">{{money}}</view>
+        </view>
+        <!-- 提现,充值按钮 -->
+        <view class="way">
+            <button bindtap="withdraw">提现</button>
+            <button bindtap="recharge">充值</button>
+        </view>
+        <!-- 使用明细 -->
+        <view class="info">
+            <view class="title">使用明细</view>
+            <view class="info-list" wx:if="{{list.length != 0}}">
+                <block wx:for="{{list}}" wx:key="index">
+                    <view class="info-item">
+                        <view class="name">{{item.name}}</view>
+                        <view class="number add">{{item.fee}}</view>
+                        <view class="time">{{item.regdate}}</view>
+                    </view>
+                </block>
+            </view>
+            <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0 && hidding}}">
+                  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

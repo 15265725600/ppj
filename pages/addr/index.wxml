@@ -1,0 +1,45 @@
+<!--pages/addr/index.wxml-->
+<view class="addr box">
+    <view class="list" wx:if="{{addrList.length != 0 && hidding}}">
+        <block wx:for="{{addrList}}" wx:key="index">
+              <view class="addr-item">
+                  <view class="top" bindtap="setAddr" data-index="{{index}}">
+                      <view class="user">
+                          <view class="name">收件人：{{item.name}}</view>
+                          <view class="phone">{{item.tel}}</view>
+                      </view>
+                      <view class="addr-detail">收件地址：{{item.position2}} {{item.address}}</view>
+                  </view>
+                  <view class="bottom">
+                      <view class="select" bindtap="setAddr" data-index="{{index}}">
+                          <icon type="success" wx:if="{{item.defaultflag == 1}}" color="#fe5656"/>
+                          <icon type="circle" wx:else="{{item.defaultflag == 1}}"/>
+                          <text>默认地址</text>
+                      </view>
+                      <view class="addr-handle">
+                          <view class="edit" bindtap="edit" data-id="{{item.id}}">
+                              <view class="icon"></view>
+                              <text>编辑</text>
+                          </view>
+                          <view class="del" bindtap="delete" data-id="{{item.id}}" data-index="{{item.index}}">
+                              <view class="icon"></view>
+                              <text>删除</text>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </block>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{addrList.length == 0 && hidding}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+    <view class="submit">
+        <navigator url="../addAddr/index" hover-class="none" open-type="redirect">
+            <button>添加新地址</button>
+        </navigator>
+    </view>
+</view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

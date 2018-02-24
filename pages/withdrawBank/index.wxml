@@ -1,0 +1,49 @@
+<!--pages/withdrawBank/index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class="withdraw">
+    <!-- 总额 -->
+    <view class="money">
+        <view class="title">钱包余额  <text>¥{{account.feeaccount}}</text></view>
+        <view class="withdraw-money">
+            <input type="number" placeholder="请输入提现金额" bindinput="inputMoney"/>
+            <view class="warn">（提现金额最少100）</view>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view class="list">
+        <view class="title">名称</view>
+        <view class="list-input">
+            <input type="text" placeholder="请输入账户名称" value="{{account.bankuser}}" bindinput="inputName"/>
+        </view>
+    </view>
+    <navigator url="../chooseBank/index?bankId={{bankId}}">
+        <view class="list">
+            <view class="title">银行</view>
+            <view class="list-input link">
+                <text>{{account.bankname == ""?'请选择银行':account.bankname}}</text>
+            </view>
+        </view>
+    </navigator>
+    <view class="list">
+        <view class="title">开户银行</view>
+        <view class="list-input">
+            <input type="text" placeholder="请输入开户银行名称" value="{{account.bankaddress}}" bindinput="inputBank"/>
+        </view>
+    </view>
+    <view class="list">
+        <view class="title">银行卡号</view>
+        <view class="list-input">
+            <input type="number" placeholder="请输入银行卡号" value="{{account.bankcard}}" bindinput="inputNum"/>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-input">
+            <input type="text" placeholder="请输入提现密码" bindinput="inputPassword"/>
+        </view>
+    </view>
+    <view class="submit">
+        <button bindtap="submit">确定</button>
+    </view>
+</view>
+<!-- toast -->
+<template is="wetoast" data="{{...__wetoast__}}"/>

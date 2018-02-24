@@ -1,0 +1,12 @@
+/* pages/chooseBank/index.wxss */
+.link-item .right{
+  text-align: right;
+}
+.link-item{
+  height: 95rpx;
+}
+.link-item .title{
+  font-size: 15px;
+  color: #474747;
+  width: 180px;
+}

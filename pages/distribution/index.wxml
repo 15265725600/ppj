@@ -1,0 +1,55 @@
+<!--pages/distribution/index.wxml-->
+<view class="distribution">
+    <!-- 我的二维码 -->
+    <!-- 生成后的二维码 -->
+    <view class="my-code" wx:if="{{showCode}}">
+        <image src="{{invitecode_url}}"></image>
+        <view class="txt">我的二维码</view>
+    </view>
+    <!-- 未生成的二维码 -->
+    <view class="my-code" wx:else="{{showCode}}" bindtap="accrue">
+        <image src="{{baseurl + 'pro-ewm.png'}}"></image>
+        <view class="txt">点击生成我的二维码</view>
+    </view>
+    <!-- 列表 -->
+     <view class="tab">
+        <!-- <block wx:for="{{tab}}" wx:key="index"> -->
+            <view class="tab-item" >我的会员</view>
+        <!-- </block> -->
+    </view> 
+     <!-- 下线 
+    <block wx:for="{{memberList}}" wx:key="index">
+        <view class="list" wx:if="{{tabIndex == index}}">
+          <block wx:for="{{item}}" wx:key="subindex" wx:for-item="subitem" wx:for-index="subindex">
+              <view class="item">
+                  <view class="user">
+                    <image src="{{subitem.avatar}}" class="u-img"></image>
+                    <view class="u-name">{{subitem.nickname}}</view>
+                </view>
+                <view class="time">{{subitem.regdate}}</view>
+              </view>
+          </block>
+        </view>
+    </block> -->
+      <!-- 我的会员  -->
+    <view class="list">
+        <block wx:for="{{memberList}}" wx:key="index">
+            <view class="item">
+                <view class="user">
+                    <image src="{{item.avatar}}" class="u-img"></image>
+                    <view class="u-name">{{item.nickname}}</view>
+                    <view class='identity'>{{item.is_daili == 1?'代理商':'普通会员'}}</view>
+                </view>
+                <view class="time">{{item.regdate}}</view>
+            </view>
+        </block> 
+    </view>
+    <!-- 暂无数据 -->
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{memberList.length == 0 && hidding}}">
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+</view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

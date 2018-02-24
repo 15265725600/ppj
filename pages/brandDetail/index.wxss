@@ -1,0 +1,5 @@
+/* pages/brandDetail/index.wxss */
+.box{
+  min-height: 100%;
+  background: #fff;
+}

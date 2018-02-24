@@ -1,0 +1,96 @@
+<!--index.wxml-->
+<scroll-view scroll-y style="height: 100%"  bindscrolltolower="getMore" >
+  <view class="home">
+      <!-- 轮播图 -->
+      <swiper indicator-dots="{{true}}"
+        autoplay="{{true}}" indicator-color="#fff" indicator-active-color="#fe5656">
+        <block wx:for="{{sliderList}}" wx:key="index">
+          <swiper-item>
+              <image src="{{item.imgurlbig}}" class="slide-image" mode="aspectFill"/>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 分类 -->
+      <view class="kind-search-box">
+          <!-- 搜索与定位 -->
+          <view class="search-addr">
+              <view class="addr-box">
+                  <view class="icon"></view>
+                  <text>{{city}}</text>
+              </view>
+              <view class="search-box">
+                  <navigator url="../search/index" hover-class="none">
+                      <view class="search">
+                          <icon type="search" size="16"/>
+                          <view class="txt">输入搜索</view>
+                      </view>
+                  </navigator>
+              </view>
+          </view>
+          <!-- 种类 -->
+          <view class="kind-box">
+              <block wx:for="{{kindList}}" wx:key="index">
+                  <navigator url="../kind/index?id={{item.id}}&title={{item.name}}" hover-class="none"> 
+                      <view class="kind-item">
+                          <image src="{{item.imgurl}}" mode="aspectFill"></image>
+                          <text>{{item.name}}</text>
+                      </view>
+                  </navigator> 
+              </block>
+          </view>
+      </view>
+      <!-- 品牌街 -->
+      <view class="home-brand-box home-item">
+          <navigator url="../brands/index" open-type="switchTab" hover-class="none">
+              <view class="title link">品牌街</view>
+          </navigator>
+          <scroll-view class="list clear" scroll-x> 
+              <block wx:for="{{brandList}}" wx:key="index">
+                    <view class="item">
+                        <navigator url="../kind/index?band={{item.id}}&title={{item.name}}" hover-class="none">
+                            <image src="{{item.imgurl}}" mode="aspectFill"></image>
+                        </navigator>
+                    </view>
+              </block>
+          </scroll-view>
+      </view>
+      <!-- 合作企业 -->
+       <view class="home-joint-box home-item">
+          <navigator url='../company/index' hover-class='none'>
+              <view class="title link">合作企业</view>
+          </navigator>
+          <scroll-view class="list clear" scroll-x>
+              <block wx:for="{{company}}" wx:key="index">
+                  <view class="item">
+                      <navigator url="../brandDetail/index?id={{item.id}}&title={{item.name}}" hover-class="none">
+                          <image src="{{item.imgurl}}" mode="aspectFill"></image>
+                      </navigator>
+                  </view>
+              </block>
+          </scroll-view>
+      </view> 
+      <!-- 商品 -->
+      <view class="home-shop-list home-item">
+          <block wx:for="{{list}}" wx:key="index">
+              <navigator url="../detail/index?id={{item.id}}">
+                  <view class="item">
+                      <image src="{{item.imgurl}}" mode="aspectFill"></image>
+                      <view class="info">
+                          <view class="name">{{item.name}}</view>
+                          <view class="type">{{item.content}}</view>
+                          <view class="price">¥ {{item.price}}</view>
+                          <!-- <view class="small-txt">
+                              <text class="access">45评价</text>
+                              <text class="time">最快2小时送达</text>   
+                          </view> -->
+                      </view>
+                  </view>
+              </navigator>
+          </block>
+      </view>
+  </view>
+</scroll-view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

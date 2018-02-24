@@ -1,0 +1,77 @@
+<!--pages/orderDetail/index.wxml-->
+<view class="order-detail box">
+    <!-- 订单地址 -->
+    <view class="order-addr">
+        <view class="icon"></view>
+        <view class="addr-detail">
+            <view class="user">{{orderDetail.consignee}} {{orderDetail.phone}}</view>
+            <view class="addr">{{orderDetail.address}}</view>
+        </view>
+    </view>
+    <!-- 商品 -->
+    <view class="shop-list">
+        <block wx:for="{{orderDetail.childItems}}" wx:key="index">
+            <view class="shop-item">
+                <image src="{{item.imgurl}}"></image>
+                <view class="shop-info">
+                    <view class="top">
+                        <view class="name">{{item.name}}</view>
+                        <view class="price">¥ {{item.price}}</view>
+                    </view>
+                    <view class="bottom">
+                        <view class="size">{{item.spec_name}}{{item.spec_name2}}</view>
+                        <view class="num">x {{item.buycount}}</view>
+                    </view>
+                    <!-- 发表评价 -->
+                    <navigator url="../assess/index?id={{item.id}}" hover-class="none" wx:if="{{orderDetail.tradetype==3}}">
+                        <button class="goAssess">去评价</button>
+                    </navigator>
+                    <!-- 申请退款 -->
+                    <navigator url="../refund/index?id={{item.id}}" hover-class="none"  wx:if="{{orderDetail.tradetype==1}}">
+                        <button class="goAssess">申请退款</button>
+                    </navigator>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 商品合计 -->
+    <view class="shop-info order-detail-list">
+        <view class="order-detail-item">
+            <text>商品合计</text>
+            <view class="price">¥ {{orderDetail.goods_fee}}</view>
+        </view>
+        <view class="order-detail-item">
+            <text>运费合计</text>
+            <view class="feight">{{orderDetail.shipping_fee}}元</view>
+        </view>
+        <view class="order-detail-item">
+            <text>留言板</text>
+            <view class="memo" wx:if="{{orderDetail.buyer_memo}}">{{orderDetail.buyer_memo}}</view>
+        </view>
+    </view>
+    <!-- 订单编号 -->
+    <view class="order-info order-detail-list">
+        <view class="order-detail-item">
+            订单编号:  
+            <text> {{orderDetail.bill_sn}}</text>
+        </view>
+        <view class="order-detail-item">
+            下单时间:  
+            <text> {{orderDetail.regdate}}</text>
+        </view>
+        <view class="order-detail-item">
+            订单状态:  
+            <text> {{status[orderDetail.tradetype]}}</text>
+        </view>
+    </view>
+    <!-- 订单状态操作 -->
+    <view class="order-detail-handle" wx:if="{{orderDetail.tradetype!=3 && orderDetail.tradetype!=1}}">
+        <button bindtap="handle" data-id="{{orderDetail.id}}" data-tradetype="{{orderDetail.tradetype}}" wx:if="{{orderDetail.tradetype==0 || orderDetail.tradetype==2 || orderDetail.tradetype==4}}">{{handleList[orderDetail.tradetype]}}</button> 
+        <button bindtap="pay" data-id="{{orderDetail.id}}"  wx:if="{{orderDetail.tradetype==0}}">立即支付</button>
+    </view>
+
+</view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

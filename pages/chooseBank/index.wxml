@@ -1,0 +1,19 @@
+<!--pages/chooseBank/index.wxml-->
+<view class="box">
+    <view class="list">
+        <block wx:for="{{bank}}" wx:key="index">
+            
+                <view class="link-item" bindtap="choose" data-index="{{index}}">
+                    <view class="title">{{item.name}}</view>
+                    <view class="right">
+                        <icon type="success" wx:if="{{chooseIndex == index}}" color="#fe5656"/>
+                        <icon type="circle" wx:else="{{chooseIndex == index}}"/>
+                    </view>
+                </view>
+
+        </block>
+    </view>
+    <view class="submit" wx:if="{{bank.length != 0}}">
+        <button bindtap="submit">确定</button>
+    </view>
+</view>

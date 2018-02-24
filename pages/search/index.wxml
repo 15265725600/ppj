@@ -1,0 +1,41 @@
+<!--pages/search/index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class="search box">
+    <!-- 搜索框 -->
+    <view class="search-warp">
+        <view class="search-box">
+            <icon type="search" size="16"/>
+            <input type="text" placeholder="输入商品名称搜索" value="{{searchTxt}}" bindinput="input"/>
+        </view>
+        <button bindtap="search">搜索</button>
+    </view>
+
+    <view class="list">
+        <text class="title">历史搜索</text>
+        <view class="search-list">
+            <block wx:for="{{searchList}}" wx:key="index">
+                <navigator url="../kind/index?search={{item}}" hover-class="none">
+                    <view class="search-item">{{item}}</view>
+                </navigator>
+            </block>
+        </view>
+        <text class="title">猜你喜欢</text>
+        <view class="search-list">
+            <block wx:for="{{hotList}}" wx:key="index">
+                <navigator url="../kind/index?id={{item.id}}&title={{item.name}}" open-type="redirect">
+                    <view class="search-item">{{item.name}}</view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+    <!-- 搜索列表 -->
+    <!-- <view class="list search-res" hidden="{{searchFlag}}">
+        <block wx:for="{{searchList}}" wx:key="index">
+            <navigator url="../kind/index?id={{item.id}}&title={{searchTxt}}" hover-class="none">
+                <view class="search-res-item">{{item.name}}</view>
+            </navigator>
+        </block>
+    </view> -->
+</view>
+<!-- toast -->
+<template is="wetoast" data="{{...__wetoast__}}"/>

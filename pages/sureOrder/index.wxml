@@ -1,0 +1,64 @@
+<!--pages/sureOrder/index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class="sure-order box">
+    <!-- 有订单地址 -->
+    <navigator url="../addr/index"  wx:if="{{addrDetail.id}}" hover-class="none">
+        <view class="order-addr">
+            <view class="icon"></view>
+            <view class="addr-detail">
+                <view class="user">{{addrDetail.name}} {{addrDetail.tel}}</view>
+                <view class="addr">{{addrDetail.position2}}  {{addrDetail.address}}</view>
+            </view>
+            <view class="choose-addr"></view>
+        </view>
+    </navigator>
+    <!-- 无订单地址 -->
+    <navigator url="../addr/index"  wx:else="{{addrDetail.id}}"  hover-class="none">
+        <view class="order-addr">
+            <view class="icon"></view>
+            <view class="addr-detail">
+                <view class="user">请添加收货地址</view>
+                <view class="addr"></view>
+            </view>
+        </view>
+    </navigator>
+    
+    <!-- 商品 -->
+    <view class="shop-list">
+        <block>
+            <view class="shop-item">
+                <image src="{{shopImgurl}}"></image>
+                <view class="shop-info">
+                    <view class="top">
+                        <view class="name">{{shopName}}</view>
+                        <view class="price">¥ {{shopPrice}}</view>
+                    </view>
+                    <view class="type">{{shopContent}}</view>
+                    <view class="bottom">
+                        <view class="size">{{size}}</view>
+                        <view class="num">x {{shopNum}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 商品合计 -->
+    <view class="shop-info order-detail-list">
+        <view class="order-detail-item">
+            <text>运费合计</text>
+            <view class="feight">{{feight}}元</view>
+        </view>
+        <view class="order-detail-item message">
+            <text>留言板</text>
+            <input type="text" placeholder="选填" value="{{buyer_memo}}" bindinput="input"/>
+        </view>
+    </view>
+    <view class="sum">共{{shopNum}}件商品 总计：<text>¥{{sum}}</text></view>
+    <!-- 订单状态操作 -->
+    <view class="order-detail-handle">
+        <view class="price-sum">合计：<text>¥{{feightAndSum}} </text></view>
+        <button bindtap="submit" disabled="{{!addrDetail.id}}">提交订单</button>
+    </view>
+</view>
+<!-- toast -->
+<template is="wetoast" data="{{...__wetoast__}}"/> 

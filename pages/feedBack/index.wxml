@@ -1,0 +1,13 @@
+<!--pages/feedBack/index.wxml-->
+<view class="refund-assess">
+    <view class="grade">
+        <textarea placeholder="意见反馈"  bindinput="input" value="{{txt}}"/>
+    </view>
+    <view class="submit">
+        <button bindtap="submit">反馈</button>
+    </view>
+</view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

@@ -1,0 +1,38 @@
+/* pages/withdrawWX/index.wxss */
+/* 总额 */
+.money{
+  background: #fff;
+}
+.money .title{
+  display: flex;
+  align-items: center;
+  padding: 0 45rpx;
+  line-height: 95rpx;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  font-size: 15px;
+}
+.money .title text{
+  font-size: 18px;
+  margin-left: 15rpx;
+}
+.money .withdraw-money{
+  padding: 20rpx 45rpx;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.withdraw-money .warn{
+  color: #fe5656;
+}
+.list{
+  padding: 15rpx 45rpx;
+  margin-top: 15rpx;
+  background: #fff;
+}
+.list-input{
+  padding: 7rpx 0;
+}
+.list .title{
+  font-size: 15px;
+}

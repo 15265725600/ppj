@@ -1,0 +1,41 @@
+<!--pages/refundOrder/index.wxml-->
+<scroll-view scroll-y style="height: 100%"  bindscrolltolower="getMore" >
+    <view class="refund-order box">
+        <view class="list" wx:if="{{list.length != 0}}">
+            <block  wx:for="{{list}}" wx:key="index">
+                <view class="order-item">
+                    <view class="status">{{status[item.itemtype]}}</view>
+                    <block>
+                        <view class="shop-item">
+                            
+                            <image src="{{item.imgurl}}"></image>
+                            <view class="shop-info">
+                                <view class="top">
+                                    <view class="name">{{item.name}}</view>
+                                    <view class="price">¥ {{item.price}}</view>
+                                </view>
+
+                                <view class="bottom">
+                                    <view class="size">{{item.spec_name}} {{item.spec_name2}}</view>
+                                    <view class="num">x {{item.buycount}}</view>
+                                </view>
+                                <!-- <button wx:if="{{item.itemtype == 1}}" class="goAssess" data-id="{{item.bill_id}}" bindtap="cancel" data-index="{{index}}">取消申请</button> -->
+                            </view>
+                        </view>
+                    </block>
+                    <view class="sum">
+                        共 {{item.buycount}} 件商品 合计： <text>¥{{item.total_fee}}</text>（含运费¥{{item.shipping_fee}}）
+                    </view>
+                </view>
+            </block>
+        </view>
+        <!-- 暂无数据 -->
+        <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0 && hidding}}">
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+        </view>
+    </view>
+</scroll-view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

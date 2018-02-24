@@ -1,0 +1,33 @@
+/* pages/addAddr/index.wxss */
+.list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35rpx;
+  line-height: 100rpx;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.list text,.list .title{
+  width: 100px;
+  display: inline-block;
+}
+textarea{
+  padding: 25rpx 0;
+  height: 190rpx;
+}
+.addr input{
+  padding-right: 20rpx;
+}
+input{
+  text-align: right;
+}
+.city-picker .right{
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+}
+.city-picker picker{
+  flex: 1;
+  text-align: center;
+}

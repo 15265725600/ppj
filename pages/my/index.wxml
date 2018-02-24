@@ -1,0 +1,35 @@
+<!--pages/my/index.wxml-->
+<view class="my">
+    <!-- 用户头像 -->
+    <view class="my-header">
+        <image src="{{userInfo.avatarUrl}}"></image>
+        <text>{{userInfo.nickName}}</text>
+    </view>
+    <!-- 订单 -->
+    <view class="my-order">
+        <navigator url="../order/index" hover-class="none">
+            <view class="all-order link">
+                <text class="title">查看订单</text>
+                <text class="name">全部订单</text>
+            </view>
+        </navigator>
+        <view class="order-kind">
+            <block wx:for="{{orderKind}}" wx:key="index">
+                <navigator url="{{item.path}}" hover-class="none">
+                    <view class="order-kind-item">
+                        <image src="{{baseurl + item.src}}"></image>
+                        <text>{{item.name}}</text>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+    <!-- 我的列表 -->
+    <view class="my-list">
+        <block wx:for="{{myList}}" wx:key="index">
+            <navigator url="{{item.path}}">
+                <view class="my-item link">{{item.title}}</view>
+            </navigator>
+        </block>
+    </view>
+</view>

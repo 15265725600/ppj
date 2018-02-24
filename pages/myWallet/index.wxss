@@ -1,0 +1,78 @@
+/* pages/myWallet/index.wxss */
+/* 总额 */
+.money{
+  background: #fe5656;
+  color: #fff;
+  text-align: center;
+  padding: 45rpx 0;
+}
+.money .name{
+  font-size: 12px;
+}
+.money .number{
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+/* 充值提现按钮 */
+.way{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15rpx 0;
+}
+.way button{
+  padding: 0 55rpx;
+  line-height: 60rpx;
+  background: #fff;
+  border-radius: 60rpx;
+  font-size: 15px;
+  color: #fe5656;
+  border: 1px solid #fe5656;
+}
+.way button:last-of-type{
+  background: #fe5656;
+  color: #fff;
+  border: 1px solid #fe5656;
+}
+/* 使用明细 */
+.info {
+  margin-top: 25rpx;
+}
+.info .title{
+  text-align: center;
+  line-height: 80rpx;
+  border-bottom: 1px solid #ededed;
+  font-size: 15px;
+  background: #fff;
+}
+.info-list{
+  background: #fff;
+}
+.info-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35rpx;
+  line-height: 80rpx;
+  box-shadow: 1px 1px 1px #ededed;
+}
+.info-item .name,.info-item .number{
+  flex: 1;
+}
+.info-item .number{
+  text-align: center;
+}
+
+.info-item .number.add{
+  color: #fb9f9f;
+}
+.info-item .number.del{
+  color: #787878;
+}
+.info-item .time{
+  width: 125px;
+  font-size: 12px;
+  color: #848484;
+}

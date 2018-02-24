@@ -1,0 +1,32 @@
+<!--pages/assess/index.wxml-->
+<view class="refund-assess">
+    <!-- 评分文本框 -->
+    <view class="grade">
+        <view class="star">
+            评分
+            <view class="star-list">
+                <block wx:for="{{5}}" wx:key="index">
+                    <view class="star-item {{starIndex>=index?'active':''}}" bindtap="grade" data-index="{{index}}"></view>
+                </block>
+            </view>
+        </view>
+        <textarea placeholder="商品满意吗？服务周到吗？来说说体验吧~"  bindinput="input" value="{{txt}}"/>
+    </view>
+    <!-- 图片 -->
+    <view class="img-box">
+        <view class="img-list">
+            <block wx:for="{{imgList}}" wx:key="index">
+                 <image src="{{item}}" bindtap="previewImage" data-index="{{index}}"></image> 
+            </block>
+            <image src="{{baseurl + 'file-up.png'}}" bindtap="selectImg" wx:if="{{imgIndex<4}}"></image>
+        </view>
+        <view class="warn" >最多可上传四张照片~</view>
+    </view>
+    <view class="submit">
+        <button bindtap="submit">发表</button>
+    </view>
+</view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

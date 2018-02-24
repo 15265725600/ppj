@@ -1,0 +1,42 @@
+<!--pages/addAddr/index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class="box add-addr">
+    <form bindsubmit="submit">
+        <view class="list">
+            <text>收件人</text>
+            <input type="text" placeholder="请填写收件人" name="name" value="{{name}}"/>
+        </view>
+        <view class="list">
+            <text>联系电话</text>
+            <input type="text" placeholder="请填写联系电话" name="phone" value="{{phone}}"/>
+        </view>
+        <view class="list city-picker link">
+            <view class="title">选择地址</view>
+            <view class="right">
+                <picker range="{{proList}}" range-key="name" bindchange="proSelect" value="{{index}}" data-id="{{proList[proIndex].id}}">
+                    <view class="pro" wx:if="{{proIndex == -1}}">省份</view>
+                    <view class="pro" wx:else="{{proIndex == -1}}">{{proList[proIndex].name}}</view>
+                </picker>
+                <picker range="{{citList}}" range-key="name" bindchange="citSelect" value="{{index}}" data-id="{{citList[citIndex].id}}">
+                    <view class="pro" wx:if="{{citIndex == -1}}">城市</view>
+                    <view class="pro" wx:else="{{citIndex == -1}}">{{citList[citIndex].name}}</view>
+                </picker>
+                <picker range="{{couList}}" range-key="name" bindchange="couSelect" value="{{index}}" data-id="{{couList[couIndex].id}}">
+                    <view class="pro" wx:if="{{couIndex == -1}}">区县</view>
+                    <view class="pro" wx:else="{{couIndex == -1}}">{{couList[couIndex].name}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="list">
+            <textarea placeholder="请填写详细地址" name="addr" value="{{addr}}"/> 
+        </view>
+        <view class="submit">
+            <button formType="submit">保存</button>
+        </view>
+    </form>
+</view>
+<!-- toast -->
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

@@ -1,0 +1,77 @@
+/* pages/orderDetail/index.wxss */
+.order-detail{
+  margin-bottom: 105rpx;
+}
+/* 订单地址 */
+.order-addr{
+  display: flex;
+  align-items: center;
+  padding: 35rpx 40rpx;
+  background: #fff;
+  border-bottom: 2px dashed #facd89;
+}
+.order-addr .icon{
+  width: 34rpx;
+  height: 38rpx;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAmCAYAAACh1knUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MERGNDdFMzc5MkU2MTFFN0JEMkFCQzVDNjkyQzk5OUUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MERGNDdFMzg5MkU2MTFFN0JEMkFCQzVDNjkyQzk5OUUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowREY0N0UzNTkyRTYxMUU3QkQyQUJDNUM2OTJDOTk5RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowREY0N0UzNjkyRTYxMUU3QkQyQUJDNUM2OTJDOTk5RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk2boPMAAAKsSURBVHjaxJjLaxNRFMZvJnVloSAUrIuqIErFTaH4oAWxVEsVXViV2oUgggs3ouDKFMTmH1AQfCxqNwWLK0W6cKOIYJTiYgSx1IgvpEpjLahgbet3wjcQSzI5ZyaPD34EZs458+Xe5N5zJ7F88bIzaBPoA7tBG1gPVvPeT/AevAaPwQSYLlsxPZT/aFA8PAGOgLOgMyRODG0l/bz2FFwBd8Fy2EO8MiY6wCQYL2OilDqZO8laZiMyCinwDLS7+GpnrRRrq4zIdI2BYZB0lVOSNceK/SS8IsGjYMBVTwN8RjLMyCUw6KqvQT6rqJE9nMNaKcVl4D8jMmfXXe11w6WGGwqNnAKb62BkCzgRGElwsbJoAdwE3aCFdPPagrHW+fx6gSVeFpoXhsR34BB4VeL+NnAPbDTU7JAROWhImAM9ISYc7/UwVqv9YmSXISENsoq4LGO16vK4i2q0BEYMxUeYo1GbGFmnDP4IcgYjOeZotNZT7MCB/kT4e2pzVnmGohtAoyG+kTkqiZEZrWtw2GCknzkafRUjU4biso2vUcRJjKUHnRIjzw0JreABaA6JaWZMq6FuxmOTa9FO4INzXNoDtfCazxiLJmSJl93vw4qiFv3gZ1PE/M8yejIif2O2AE0xTLh8l58eWgr+vlfBtzq0AZ/AtcJ+RDaoC3Uwcgaj8WtlqygN7Z0ampBZuF+qeZZO7WUNTDwMGqJSRuT8esCwWUXRG3AMLJY7YH2hmfkqmAhqz2mPnLIo7auwmVnQC95aD+EZmvldARPzHAk/6tsAMbM35sh85xfKxHktEbzj6DK0C4Wa4Wkuo+lHNPJpZtpgIsscX9sYaSUmdoBHitgnYLvFuGcc6hx/+bdCYm7zXDNrKexFmHdpiE+Do5z7RR4bpME6Dk5GabT/CTAAXf2I/ZJCApAAAAAASUVORK5CYII=);
+  background-size: cover;
+  margin-right: 25rpx;
+}
+.order-addr .addr-detail{
+  flex: 1;
+}
+.order-addr .user{
+  font-size: 15px;
+}
+.order-addr .addr{
+  color: #666;
+  font-size: 13px;
+  margin: 5rpx 0;
+}
+
+
+/* s商品 */
+.shop-list{
+  margin-top: 15rpx;
+  background: #fff;
+}
+
+
+.order-detail-list{
+  margin-top: 10rpx;
+}
+.order-detail-item{
+  display: flex;
+  align-items: center;
+  padding: 0 35rpx;
+  line-height: 95rpx;
+  background: #fff;
+  border-bottom: 1px solid #efefef;
+}
+.order-detail-item .price{
+  font-size: 15px;
+  color: #fe5656;
+  font-weight: bold;
+}
+.order-detail-item .feight{
+  font-size: 13px;
+  color: #838383;
+}
+.order-info text{
+  margin-left: 15rpx;
+  font-size: 13px;
+  color: #838383;
+}
+.shop-info .order-detail-item{
+  justify-content: space-between;
+}
+.order-detail-handle button{
+  color:#fe5656;
+  border:1px solid #fe5656;
+  background:#fff;
+}
+.order-detail-handle button:last-of-type{
+  color:#fff;
+  background:#fe5656;
+  border:1px solid #fe5656;
+}

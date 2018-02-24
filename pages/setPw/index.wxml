@@ -1,0 +1,17 @@
+<!--pages/setPw/index.wxml-->
+<view class="box">
+    <view class="input-title">请设置钱包支付密码</view>
+    <view class="input-content-wrap">
+        <view catchtap="set_Focus" class="input-password-wrap">
+          <block wx:for="{{6}}" wx:key="index">
+              <view class="password_dot">
+                  <i wx:if="{{wallets_password.length>index}}"></i>
+              </view>
+          </block>
+        </view>
+      <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" value="{{wallets_password}}"/>
+    </view>
+</view> 
+
+
+  

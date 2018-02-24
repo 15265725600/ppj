@@ -1,0 +1,20 @@
+/* pages/company/index.wxss */
+.company {
+  padding: 0 26rpx;
+  overflow: hidden;
+}
+.item{
+  margin: 10rpx 14rpx;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #fff;
+  width: 205rpx;
+  height: 205rpx;
+}
+.item image{
+  width: 111rpx;
+  height: 111rpx;
+}

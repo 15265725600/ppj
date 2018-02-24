@@ -1,0 +1,62 @@
+<!--pages/order/index.wxml-->
+<scroll-view scroll-y style="height: 100%"  bindscrolltolower="getMore" >
+    <view class="order box">
+        <view class="tab">
+            <block wx:for="{{tab}}" wx:key="index">
+                <view class="tab-item {{orderStatus == index?'active':''}}" bindtap="tab" data-index="{{index}}">{{item}}</view>
+            </block>
+        </view>
+        <view class="list" wx:if="{{list.length != 0}}">
+            <block wx:for="{{list}}" wx:key="index">
+                
+                <view class="order-item">
+                    
+                        <view class="status">{{status[item.tradetype]}}</view>
+                        <block wx:for="{{item.childItems}}" wx:key="subindex" wx:for-index="subindex" wx:for-item="subitem">
+                            <view class="shop-item">
+                                <image src="{{subitem.imgurl}}"></image>
+                                <view class="shop-info">
+                                    <navigator url="../orderDetail/index?id={{item.id}}" hover-class="none">
+                                        <view class="top">
+                                            <view class="name">{{subitem.name}}</view>
+                                            <view class="price">¥ {{subitem.price}}</view>
+                                        </view>
+                                        <!-- <view class="type">{{subitem.price}}</view> -->
+                                        <view class="bottom">
+                                            <view class="size">{{subitem.spec_name}}{{subitem.spec_name2}}</view>
+                                            <view class="num">x {{subitem.buycount}}</view>
+                                        </view>
+                                    </navigator>
+                                    <!-- 发表评价 -->
+                                    <navigator url="../assess/index?id={{subitem.id}}" hover-class="none" wx:if="{{item.tradetype==3}}">
+                                        <button class="goAssess">去评价</button>
+                                    </navigator>
+                                    <!-- 申请退款 -->
+                                    <navigator url="../refund/index?id={{subitem.id}}" hover-class="none"  wx:if="{{item.tradetype==1}}">
+                                        <button class="goAssess">申请退款</button>
+                                    </navigator>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="sum">
+                            共 {{item.total_buycount}} 件商品 合计： <text>¥{{item.total_fee}}</text>（含运费¥{{item.shipping_fee}}）
+                        </view>
+      
+                        <view class="order-handle" wx:if="{{item.tradetype!=3 && item.tradetype!=1}}">
+                            <button bindtap="handle" data-id="{{item.id}}" data-tradetype="{{item.tradetype}}" wx:if="{{item.tradetype==0 || item.tradetype==2 || item.tradetype==4}}">{{handleList[item.tradetype]}}</button> 
+                            <button bindtap="pay" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.tradetype==0}}">立即支付</button>
+                        </view>
+                </view>
+                
+            </block>
+        </view>
+        <!-- 暂无数据 -->
+        <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0 && hidding}}">
+              <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+        </view>
+    </view>
+</scroll-view>
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

@@ -1,0 +1,67 @@
+/* pages/order/index.wxss */
+/* 导航 */
+.tab{
+  display: flex;
+  align-items: center;
+  justify-content:  space-around;
+  line-height: 80rpx;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  font-size: 13px;
+  color: #666666;
+}
+.tab-item {
+  border-bottom: 1px solid transparent;
+}
+.tab-item.active{
+  color: #ff7b82;
+  border-bottom: 1px solid #ff7b82;
+}
+.order-item{
+  background: #fff;
+  margin-bottom: 15rpx;
+  padding-top: 25rpx;
+  position: relative;
+}
+/* 订单状态 */
+.order-item .status{
+  color: #fe5656;
+  position: absolute;
+  right: 30rpx;
+  top: 7rpx;
+}
+
+
+
+.order-item .sum{
+  padding: 0 30rpx;
+  line-height: 75rpx;
+  text-align: right;
+  font-size: 12px;
+  color: #7e7e7e;
+}
+.order-item .sum text{
+  color: #fe5656;
+  font-size: 15px;
+}
+.order-handle{
+  display: flex;
+  justify-content: flex-end;
+  padding: 8rpx 30rpx;
+  box-shadow: -1px 0 3px #ccc;
+}
+.order-handle button{
+  margin: 0 7rpx;
+  padding: 0 25rpx;
+  line-height: 65rpx;
+  border-radius: 65rpx;
+  font-size: 15px;
+  color: #fe5656;
+  border:1px solid #fe5656;
+  background: #fff;
+}
+.order-handle button:last-of-type{
+  color: #fff;
+  background: #fe5656;
+  border: 1px solid #fe5656;
+}

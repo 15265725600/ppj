@@ -1,0 +1,4 @@
+/* pages/kind/index.wxss */
+.home-item{
+  background: #fff;
+}

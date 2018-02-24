@@ -1,0 +1,20 @@
+<!--pages/recharge/index.wxml-->
+<view class="recharge">
+    <view class="recharge-title">金额</view>
+    <view class="recharge-number">
+        <input type="number" placeholder="请输入充值金额" bindinput="input"/>
+    </view>
+    <!-- 微信支付 -->
+    <view class="pay-way">
+        <view class="title">
+            <view class="icon"></view>
+            <view class="name">微信支付</view>
+        </view>
+        <view class="select">
+            <icon type="success" wx:if="{{true}}" color="#fe5656"/>
+        </view>
+    </view>
+    <view class="submit">
+        <button bindtap="recharge" disabled="{{isDisabled}}">确定</button>
+    </view>
+</view>

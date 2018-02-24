@@ -1,0 +1,18 @@
+<!--pages/brands/index.wxml-->
+<scroll-view scroll-y style="height: 100%"  bindscrolltolower="getMore" >
+  <view class="brands box">
+      <block wx:for="{{list}}" wx:key="index">
+          <navigator url="../kind/index?band={{item.id}}&title={{item.name}}">
+              <view class="item">
+                  <image src="{{item.imgurl}}"></image>
+                  <text>{{item.name}}</text> 
+              </view>
+          </navigator>
+      </block>
+  </view>
+</scroll-view>
+
+<!-- 加载动画 -->
+<view class="loading-box" hidden="{{hidding}}">
+    <loading>加载中...</loading>
+</view>

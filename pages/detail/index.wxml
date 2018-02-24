@@ -1,0 +1,119 @@
+<!--pages/detail/index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="detail {{hidden != true?'fixed':''}}">
+    <!-- 商品轮播 -->
+    <swiper indicator-dots="{{true}}"
+      autoplay="{{true}}">
+      <block wx:for="{{detail.imgItems}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item.imgurlbig}}" class="slide-image" mode="aspectFill"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 商品说明(名字) -->
+    <view class="detail-info detail-list">
+        <view class="name">{{detail.name}}</view>
+        <view class="txt">{{detail.content}}</view>
+        <view class="info-bottom">
+            <view class="price">¥ {{detail.price}}</view>
+            <view class="grade">综合评分<text>4.9</text></view>
+        </view>
+    </view>
+    <!-- 规格 -->
+    <view class="size detail-list link" bindtap="showAction">
+        <text class="size-title">选择规格</text>
+        <text class="size-name">已选择 {{detail.one_specs[oneSizeIndex].name}}  {{detail.two_specs[twoSizeIndex].name}}</text>
+    </view>
+
+    <!-- 评价 -->
+    <view class="assess detail-list">
+        <view class="assess-title link">
+            <text>评价({{detail.replycount}})</text>
+            <navigator url="../allAssess/index?id={{detail.id}}" hover-class="none"  wx:if="{{assessList.length != 0}}">
+                <view>查看全部</view>
+            </navigator>
+        </view>
+        <!-- 有评价 -->
+        <view class="assess-list" wx:if="{{assessList.length != 0}}">
+            <view class="assess-item">
+                <image src="{{assessList[0].avatar}}" class="user-pic" mode="aspectFill"></image>
+                <view class="assess-info">
+                    <view class="assess-top">
+                        <view class="assess-user">{{assessList[0].nickname}}</view>
+                        <view class="assess-time">
+                            <text>{{assessList[0].regdate}}</text>
+                            <view class="assess-grade">
+                                <block wx:for="{{5}}" wx:key="index">
+                                    <view class="star {{assessList[0].stars > index?'active':''}}"></view>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="assess-middle">{{assessList[0].content}}</view>
+                    <view class="assess-bottom">
+                        <block wx:for="{{assessList[0].imgItems}}" wx:key="index">
+                            <image src="{{item}}" bindtap="lookImg" mode="aspectFill" data-index="{{index}}"></image>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 暂无评价 -->
+        <view class="assess-list no-assess" wx:else="{{assessList.length != 0}}">
+          暂无评价,欢迎您购买之后留下宝贵的评价
+        </view>
+    </view>
+    <!-- 图文详情 -->
+    <view class="img-txt-detail detail-list">
+        <view class="img-txt-title">图文详情</view>
+        <view class="classname">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+    </view>
+</view>
+<view class="submit">
+    <button bindtap="submit" disabled="{{leftCount == 0}}">立即购买</button>
+</view>
+<!-- 商品规格选择 -->
+ <view class="shop-action-mark" hidden="{{hidden}}" animation="{{animationData}}">
+    <view class="shop-action">
+        <view class="action-info">
+            <image src="{{imgurl}}" mode="aspectFill"></image>
+            <view class="action-info-right">
+                <view class="price">
+                    <text>¥ {{price}}</text>
+                    <icon type="cancel" bindtap="closeAction" size='24'/>
+                </view>
+                <view class="stock">库存{{leftCount}}件</view>
+            </view>
+        </view>
+        <view class="action-size" wx:if="{{detail.one_spec}}">
+            <text>{{detail.one_spec}}</text>
+            <view class="action-size-list">
+                <block wx:for="{{detail.one_specs}}" wx:key="index">
+                    <button class="action-size-item {{oneSizeIndex == index?'active':''}}" bindtap="chooseOneSize" data-index="{{index}}">{{item.name}}</button>
+                </block>
+            </view>
+        </view>
+        <!-- detail.two_spec -->
+        <view class="action-size" wx:if="{{oneSizeIndex>-1 && detail.two_spec}}">
+            <text>{{detail.two_spec}}</text>
+            <view class="action-size-list">
+                <block wx:for="{{detail.one_specs[oneSizeIndex].spec2Items}}" wx:key="index">
+                    <button class="action-size-item {{twoSizeIndex == index?'active':''}}" bindtap="chooseTwoSize" data-index="{{index}}">{{item.name}}</button>
+                </block>
+            </view>
+        </view>
+        <view class="action-num">
+            <text>数量</text>
+            <view class="input-x-number">
+                <view class="btn" bindtap="del">-</view>
+                <view class="input">{{shopNumber}}</view>
+                <view class="btn" bindtap="add">+</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- toast -->
+<template is="wetoast" data="{{...__wetoast__}}"/> 
